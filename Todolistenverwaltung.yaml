@@ -57,7 +57,7 @@ paths:
         404:
           description: Invalid list id
           content: {}
-  /todolist/{list_id}/entry:
+  /todo-list/{list_id}/entry:
     post:
       tags:
       - Listenverwaltung
@@ -90,7 +90,7 @@ paths:
         500:
           description: List could not be added
           content: {}
-  /todolist/{list_id}/entry/{entry_id}:
+  /todo-list/{list_id}/entry/{entry_id}:
     patch:
       tags:
       - Listenverwaltung

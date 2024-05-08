@@ -1,7 +1,6 @@
 
 """
-Example script showing how to represent todo lists and todo entries in Python
-data structures and how to implement endpoint for a REST API with Flask.
+Test server for the LF9 API project. Extending beispiel-server.py.
 
 Requirements:
 * flask
@@ -19,7 +18,7 @@ app = Flask(__name__)
 todo_list_1_id = '1318d3d1-d979-47e1-a225-dab1751dbe75'
 todo_list_2_id = '3062dc25-6b80-4315-bb1d-a7c86b014c65'
 todo_list_3_id = '44b02e00-03bc-451d-8d01-0c67ea866fee'
-todo_1_id = str(uuid.uuid4())
+todo_1_id = '25dde792-d6b1-46a5-9629-8765a2c0b99e'
 todo_2_id = str(uuid.uuid4())
 todo_3_id = str(uuid.uuid4())
 todo_4_id = str(uuid.uuid4())
@@ -41,7 +40,7 @@ todos = [
 @app.after_request
 def apply_cors_header(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Methods'] = 'GET,POST,DELETE'
+    response.headers['Access-Control-Allow-Methods'] = 'GET,POST,DELETE,PATCH'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     return response
 
@@ -80,7 +79,7 @@ def add_new_list():
     return jsonify(new_list), 200
 
 # define endpoint for post list entries
-@app.route('/todolist/<list_id>/entry', methods=['POST'])
+@app.route('/todo-list/<list_id>/entry', methods=['POST'])
 def add_new_entry(list_id):
     # make JSON from POST data (even if content type is not set correctly)
     new_entry = request.get_json(force=True)
@@ -93,13 +92,16 @@ def add_new_entry(list_id):
 
 # define endpoint for patch and delete an entry
 @app.route('/todo-list/<list_id>/entry/<entry_id>', methods=['PATCH', 'DELETE'])
-def handle_entry(entry_id, list_id):
+def handle_entry(list_id, entry_id):
     entry_item = None
     # Entry suchen
     for e in todos:
+        print('1')
         if e['list'] == list_id:
+            print('2')
             if e['id'] == entry_id:
-                entry_item == e
+                print(3)
+                entry_item = e
                 break
     # if the given entry is invalid, return status code 404
     if not entry_item:
