@@ -87,7 +87,6 @@ def add_new_entry(list_id):
     new_entry['id'] = str(uuid.uuid4())
     new_entry['list'] = list_id
     todos.append(new_entry)
-    #TODO: 500, 406
     return jsonify(new_entry), 201
 
 # define endpoint for patch and delete an entry
