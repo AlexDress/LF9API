@@ -84,7 +84,7 @@
 
 ### Deployment
 
-**Container erstellen und starten**: Erstellen einer [`Dockerfile`](https://github.com/AlexDress/LF9API/blob/09730546ca34c4b824097deb53473452004f4b71/Dockerfile.txt) für den Python-Server und einer [`docker-compose.yml`](https://github.com/AlexDress/LF9API/blob/09730546ca34c4b824097deb53473452004f4b71/docker-compose.yml), um den Container zu starten.
+**Container erstellen und starten**: Erstellen einer [`Dockerfile`](https://github.com/AlexDress/LF9API/blob/main/Dockerfile.txt) für den Python-Server und einer [`docker-compose.yml`](https://github.com/AlexDress/LF9API/blob/main/docker-compose.yml), um den Container zu starten.
 
 #### Deployment mit Docker
 
